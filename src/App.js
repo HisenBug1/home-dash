@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+import Clock from './components/Clock'
+import Garbage from './components/Garbage'
+
+// const dateTime=new Date();
+
+// const data = Clock.getDate()
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='bg-[#23015e] h-screen text-white'>
+      {/* <div className=' flex justify-center pt-5 text-2xl'> */}
+        <Clock />
+      {/* </div> */}
+      <div className='flex justify-evenly pt-10'>
+        <Garbage />
+      </div>
     </div>
   );
 }
