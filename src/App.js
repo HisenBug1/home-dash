@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 import Clock from './components/Clock'
 import Garbage from './components/Garbage'
 
@@ -10,7 +10,7 @@ import Garbage from './components/Garbage'
 function App() {
 
   return (
-    <div className='bg-[#23015e] h-screen text-white'>
+    <div className='background  h-screen text-white'>
       {/* <div className=' flex justify-center pt-5 text-2xl'> */}
         <Clock />
       {/* </div> */}
