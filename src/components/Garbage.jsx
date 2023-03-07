@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios";
+import Box from '@mui/material/Box';
+// import Button from '@mui/material/Button';
 
 const url = 'http://ubuntu:8000/garbage'
 
@@ -18,12 +20,22 @@ export default function Garbage() {
             }
         }
         fetchData();
-
     }, []);
+
     return (
-        <section>
-            <p>{garbage_date}</p>
-            <p>{garbage_type}</p>
-        </section>
+        <Box className='flex flex-col rounded-[2rem] justify-items-center text-center'
+            sx={{
+                width: 300,
+                height: 300,
+                backgroundColor: 'primary.dark',
+                '&:hover': {
+                    backgroundColor: 'primary.main',
+                    opacity: [0.9, 0.8, 0.7],
+                },
+            }}
+        >
+        <div>{garbage_date}</div>
+        <div>{garbage_type}</div>
+        </Box>
     )
 }
