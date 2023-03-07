@@ -10,11 +10,9 @@ import Garbage from './components/Garbage'
 function App() {
 
   return (
-    <div className='background  h-screen text-white'>
-      {/* <div className=' flex justify-center pt-5 text-2xl'> */}
+    <div className='background h-screen text-white'>
         <Clock />
-      {/* </div> */}
-      <div className='flex justify-evenly pt-10'>
+      <div className='flex pt-10 justify-evenly'>
         <Garbage />
       </div>
     </div>
