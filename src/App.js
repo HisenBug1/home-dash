@@ -1,7 +1,10 @@
 // import logo from './logo.svg';
+// import React, { useState } from 'react';
 import './App.css';
-import Clock from './components/Clock'
+// import Clock from './components/Clock'
 import Garbage from './components/Garbage'
+import Time from './class/Time'
+import Clock2 from './components/Clock2'
 
 // const dateTime=new Date();
 
@@ -9,9 +12,14 @@ import Garbage from './components/Garbage'
 
 function App() {
 
+  const time = new Time()
+
   return (
     <div className='background h-screen text-white'>
-        <Clock />
+      <Clock2
+        time = {time}
+        />
+        {/* <Clock /> */}
       <div className='flex pt-10 justify-evenly'>
         <Garbage />
       </div>
