@@ -9,7 +9,7 @@ export default class Time {
         this.time = new Date()
     }
 
-    dayAndDate() {
+    getDayAndDate() {
         const d = this.time
         const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -17,7 +17,7 @@ export default class Time {
         return date
     }
 
-    time() {
-        return this.time.toLocalTimeString()
+    getTime() {
+        return this.time.toLocaleTimeString()
     }
 }
