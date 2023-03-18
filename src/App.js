@@ -16,10 +16,7 @@ function App() {
 
   return (
     <div className='background h-screen text-white'>
-      <Clock2
-        time = {time}
-        />
-        {/* <Clock /> */}
+      <Clock2 time={time} />
       <div className='flex pt-10 justify-evenly'>
         <Garbage />
       </div>
