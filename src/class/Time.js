@@ -5,7 +5,7 @@ export default class Time {
     }
 
     tick() {
-        clearInterval(this.id)
+        delete this.time
         this.time = new Date()
     }
 
