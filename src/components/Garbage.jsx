@@ -11,12 +11,24 @@ export default function Garbage() {
     const [garbage_date, setDate] = useState()
     const [garbage_type, setType] = useState()
     const [both, setBoth] = useState()
+    const [jsDate, setJSDate] = useState()
+    const [dayRemaining, setRemaining] = useState()
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const res = await axios.get(url)
+
                 setDate(res.data.date)
+
+                // format date string to JS date
+                const d = res.data.date.split('-')
+                d[1] = parseInt(d[1]) - 1
+                setJSDate(new Date(d[0], d[1], d[2]))
+
+                // calculate days remaining
+                setRemaining(jsDate - new Date())
+
                 setType(res.data.type)
                 if (garbage_type.toLowerCase().includes('both'))
                     setBoth(true)
@@ -27,7 +39,19 @@ export default function Garbage() {
             }
         }
         fetchData();
-    }, [garbage_type]);
+    }, [garbage_date, garbage_type]);
+
+    function show_days_remaining() {
+        const d = Math.floor(dayRemaining/ (1000 * 3600 * 24))
+        if (d < 1)
+            return ("Today")
+        else if (d === 1)
+            return ("Tomorrow")
+        else
+            return (""+d+" days")
+    }
+
+    console.log(show_days_remaining())
 
     if (both) {
         return (
@@ -42,7 +66,8 @@ export default function Garbage() {
                     },
                 }}
             >
-                <div className="pt-5">{garbage_date}</div>
+                <div className="pt-1">{garbage_date}</div>
+                <div>{show_days_remaining()}</div>
                 <div className="max-w-[50%] m-auto flex flex-row justify-center">
                     <img src={garbageLogo} alt='logo of waste bin' />
                     <img src={recycleLogo} alt='logo of recycle bin' />
@@ -64,6 +89,7 @@ export default function Garbage() {
                 }}
             >
                 <div className="pt-1">{garbage_date}</div>
+                <div>{show_days_remaining()}</div>
                 <div className="max-w-[75%] m-auto">
                     <img src={garbageLogo} alt='logo of waste bin' />
                 </div>
