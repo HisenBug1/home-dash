@@ -42,13 +42,13 @@ export default function Garbage() {
     }, [garbage_date, garbage_type]);
 
     function show_days_remaining() {
-        const d = Math.floor(dayRemaining/ (1000 * 3600 * 24))  // miliseconds -> days
+        const d = dayRemaining/ (1000 * 3600 * 24)  // miliseconds -> days
         if (d <= 0)
             return ("Today")
-        else if (d === 1)
+        else if (d > 0 && d <= 1)
             return ("Tomorrow")
         else
-            return (""+d+" days")
+            return (""+Math.floor(d)+" days")
     }
 
     console.log(show_days_remaining())
