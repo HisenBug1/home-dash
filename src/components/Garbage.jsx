@@ -22,8 +22,8 @@ export default function Garbage() {
                 setDate(res.data.date)
 
                 // format date string to JS date
-                const d = res.data.date.split('-')
-                d[1] = parseInt(d[1]) - 1
+                const d = res.data.date.split('-')  // '2023-12-31'
+                d[1] = parseInt(d[1]) - 1   // convert month string to int
                 setJSDate(new Date(d[0], d[1], d[2]))
 
                 // calculate days remaining
@@ -42,7 +42,7 @@ export default function Garbage() {
     }, [garbage_date, garbage_type]);
 
     function show_days_remaining() {
-        const d = Math.floor(dayRemaining/ (1000 * 3600 * 24))
+        const d = Math.floor(dayRemaining/ (1000 * 3600 * 24))  // miliseconds -> days
         if (d < 1)
             return ("Today")
         else if (d === 1)
