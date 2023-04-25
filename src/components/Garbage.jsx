@@ -48,7 +48,7 @@ export default function Garbage() {
         else if (d > 0 && d <= 1)
             return ("Tomorrow")
         else
-            return (""+Math.floor(d)+" days")
+            return (""+Math.ceil(d)+" days")
     }
 
     console.log(show_days_remaining())
