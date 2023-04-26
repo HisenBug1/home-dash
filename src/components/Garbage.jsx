@@ -64,7 +64,7 @@ export default function Garbage() {
             clearInterval(intervalId);
             console.log("Garbage: Cleared interval")
         };
-    }, [garbage_date, timeUntilMidnight, fetchData]);
+    }, [fetchData, timeUntilMidnight, dayRemaining]);
 
     function show_days_remaining() {
         const d = dayRemaining / (1000 * 3600 * 24)  // miliseconds -> days
